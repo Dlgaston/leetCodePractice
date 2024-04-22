@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Objects;
 
 public class RomanInteger {
     public static int romanToInt(String s) {
@@ -27,24 +28,23 @@ public class RomanInteger {
                 int left = key_map.get(s.charAt(i));
 
                 if(right<left || right == left){
-                    System.out.println(right);
-                    System.out.println(left);
-                    System.out.println(sum);
                     sum +=right;
-                    System.out.println(sum);
                 }
                 if(left<right){
-                    System.out.println(right);
                     sum += Math.abs(right - left);
+                    i-=1;
                 }
 
             }
+        }
+        if(key_map.get(s.charAt(0))>key_map.get(s.charAt(1)) || Objects.equals(key_map.get(s.charAt(0)), key_map.get(s.charAt(1)))){
+            sum += key_map.get(s.charAt(0));
         }
         return sum;
     }
     public static void main(String[] args){
 
-        String s ="MMCMV";
+        String s ="III";
         int result = romanToInt(s);
         System.out.println(result);
     }
