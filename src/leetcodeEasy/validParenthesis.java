@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package leetcodeEasy;
+
 import java.util.HashMap;
 import java.util.Stack;
 
